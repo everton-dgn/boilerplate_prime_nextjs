@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 
 import poppins from 'theme/fontFamily'
 
-import { MainProvider } from 'providers/mainProvider'
+import { MainProvider } from 'components/providers/mainProvider'
 import 'theme/reset.css'
 
 const RootLayout = ({ children }: { children: ReactNode }) => (

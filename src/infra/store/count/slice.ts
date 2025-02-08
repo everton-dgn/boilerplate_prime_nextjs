@@ -1,13 +1,14 @@
 import { create } from 'zustand'
 import {
   type DevtoolsOptions,
+  type PersistOptions,
   createJSONStorage,
   devtools,
   persist
 } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 
-import type { Slice, State, UseCountState } from './types'
+import type { SetAction, Slice, State, UseCountState } from './types'
 
 const initialState: State = {
   count: 0
@@ -15,14 +16,14 @@ const initialState: State = {
 
 const createAction =
   <T extends unknown[]>(
-    set: Parameters<Slice>[0],
+    set: SetAction,
     name: string,
     updater: (state: State, ...args: T) => void
   ) =>
   (...args: T) =>
     set(state => updater(state, ...args), false, name)
 
-const slice: Slice = set => ({
+const createSlice: Slice = set => ({
   ...initialState,
 
   setIncrement: createAction(set, 'setIncrement', state => {
@@ -42,7 +43,7 @@ const slice: Slice = set => ({
   })
 })
 
-const storage = {
+const storage: PersistOptions<UseCountState, Partial<State>> = {
   name: 'count-storage',
   storage: createJSONStorage(() => localStorage)
 }
@@ -54,11 +55,5 @@ const devtoolsOptions: DevtoolsOptions = {
 }
 
 export const useCountState = create<UseCountState>()(
-  devtools(
-    persist(
-      immer((...params) => slice(...params)),
-      storage
-    ),
-    devtoolsOptions
-  )
+  devtools(persist(immer(createSlice), storage), devtoolsOptions)
 )

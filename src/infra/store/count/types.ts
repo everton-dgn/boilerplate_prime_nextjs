@@ -15,5 +15,11 @@ export type UseCountState = State & Actions
 
 export type Slice = StateCreator<
   UseCountState,
-  [['zustand/immer', never], ['zustand/devtools', never]]
+  [
+    ['zustand/immer', never],
+    ['zustand/persist', unknown],
+    ['zustand/devtools', never]
+  ]
 >
+
+export type SetAction = Parameters<Slice>[0]

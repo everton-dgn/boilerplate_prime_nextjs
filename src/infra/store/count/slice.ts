@@ -8,7 +8,7 @@ import {
 } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 
-import type { SetAction, Slice, State, UseCountState } from './types'
+import type { SetAction, Slice, State, Store } from './types'
 
 const initialState: State = {
   count: 0
@@ -43,9 +43,9 @@ const createSlice: Slice = set => ({
   })
 })
 
-const storage: PersistOptions<UseCountState, Partial<State>> = {
+const storage: PersistOptions<Store, Partial<State>> = {
   name: 'count-storage',
-  storage: createJSONStorage<Partial<State>>(() => localStorage)
+  storage: createJSONStorage(() => localStorage)
 }
 
 const devtoolsOptions: DevtoolsOptions = {
@@ -54,6 +54,6 @@ const devtoolsOptions: DevtoolsOptions = {
   store: 'useCountState'
 }
 
-export const useCountState = create<UseCountState>()(
+export const useCountState = create<Store>()(
   devtools(persist(immer(createSlice), storage), devtoolsOptions)
 )

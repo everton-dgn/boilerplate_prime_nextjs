@@ -11,10 +11,10 @@ export type Actions = {
   setReset: () => void
 }
 
-export type UseCountState = State & Actions
+export type Store = State & Actions
 
 export type Slice = StateCreator<
-  UseCountState,
+  Store,
   [
     ['zustand/immer', never],
     ['zustand/persist', unknown],

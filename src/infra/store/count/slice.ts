@@ -45,7 +45,7 @@ const createSlice: Slice = set => ({
 
 const storage: PersistOptions<UseCountState, Partial<State>> = {
   name: 'count-storage',
-  storage: createJSONStorage(() => localStorage)
+  storage: createJSONStorage<Partial<State>>(() => localStorage)
 }
 
 const devtoolsOptions: DevtoolsOptions = {

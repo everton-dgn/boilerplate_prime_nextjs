@@ -4,7 +4,7 @@ export type State = {
   count: number
 }
 
-export type Actions = {
+type Actions = {
   setIncrement: () => void
   setDecrement: () => void
   setUpdate: (qty: State['count']) => void

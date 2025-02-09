@@ -16,7 +16,7 @@ export const slice: Slice = set => ({
     state.count--
   }),
 
-  setUpdate: createAction(set, 'setUpdate', (state, qty: State['count']) => {
+  setUpdate: createAction(set, 'setUpdate', (state, qty) => {
     state.count += qty
   }),
 

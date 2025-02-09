@@ -4,7 +4,8 @@ import { immer } from 'zustand/middleware/immer'
 
 import type { Slice, State, Store } from './types'
 
-import { devtoolsOptions, storage } from './config'
+import { devtoolsOptions } from '../config'
+import { storage } from './config'
 import { createAction } from './createAction'
 
 const initialState: State = {
@@ -32,5 +33,5 @@ const createSlice: Slice = set => ({
 })
 
 export const useCountState = create<Store>()(
-  devtools(persist(immer(createSlice), storage), devtoolsOptions)
+  devtools(persist(immer(createSlice), storage), devtoolsOptions('count'))
 )

@@ -1,5 +1,14 @@
+import type { StateCreator } from 'zustand/index'
+import type { PersistOptions } from 'zustand/middleware'
+
 export type Middleware = [
-  ['zustand/immer', never],
+  ['zustand/devtools', never],
   ['zustand/persist', unknown],
-  ['zustand/devtools', never]
+  ['zustand/immer', never]
 ]
+
+export type MiddlewaresProvider<TStore> = {
+  slice: StateCreator<TStore, Middleware>
+  storage?: PersistOptions<TStore, Partial<TStore>>
+  name: string
+}

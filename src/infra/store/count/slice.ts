@@ -1,10 +1,6 @@
-import { create } from 'zustand'
-import { devtools, persist } from 'zustand/middleware'
-import { immer } from 'zustand/middleware/immer'
-
 import type { Slice, State, Store } from './types'
 
-import { devtoolsOptions } from '../config'
+import { middlewaresProvider } from '../config'
 import { storage } from './config'
 import { createAction } from './createAction'
 
@@ -12,7 +8,7 @@ const initialState: State = {
   count: 0
 }
 
-const createSlice: Slice = set => ({
+const slice: Slice = set => ({
   ...initialState,
 
   setIncrement: createAction(set, 'setIncrement', state => {
@@ -32,6 +28,8 @@ const createSlice: Slice = set => ({
   })
 })
 
-export const useCountState = create<Store>()(
-  devtools(persist(immer(createSlice), storage), devtoolsOptions('count'))
-)
+export const useCountState = middlewaresProvider<Store>({
+  slice,
+  storage,
+  name: 'count'
+})

@@ -16,10 +16,8 @@ export const middlewaresProvider = <TStore>({
   name
 }: MiddlewaresProvider<TStore>) => {
   const appliedSlice = storage ? persist(immer(slice), storage) : immer(slice)
+
   return create<TStore>()(
-    devtools(
-      appliedSlice as unknown as StateCreator<TStore>,
-      devtoolsOptions(name)
-    )
+    devtools(appliedSlice as StateCreator<TStore>, devtoolsOptions(name))
   )
 }

@@ -1,4 +1,4 @@
-import { useCountState } from './slice'
+import { useCountState } from './store'
 
 export const useCount = () => {
   const count = useCountState(state => state.count)

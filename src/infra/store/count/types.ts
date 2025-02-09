@@ -1,5 +1,7 @@
 import type { StateCreator } from 'zustand'
 
+import type { Middleware } from '../types'
+
 export type State = {
   count: number
 }
@@ -13,13 +15,6 @@ type Actions = {
 
 export type Store = State & Actions
 
-export type Slice = StateCreator<
-  Store,
-  [
-    ['zustand/immer', never],
-    ['zustand/persist', unknown],
-    ['zustand/devtools', never]
-  ]
->
+export type Slice = StateCreator<Store, Middleware>
 
 export type SetAction = Parameters<Slice>[0]

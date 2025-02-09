@@ -7,4 +7,4 @@ export const createAction =
     updater: (state: State, ...args: T) => void
   ) =>
   (...args: T) =>
-    set(state => updater(state, ...args), false, name)
+    set(state => updater(state, ...args), undefined, name)

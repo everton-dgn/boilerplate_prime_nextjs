@@ -27,8 +27,10 @@ const Home = () => {
           />
           <LogoReact data-testid="logo-react" />
         </div>
-        <h1 className={S.title}>Nextjs + React</h1>
-        <h2 className={S.title}>Count: {stateCount.count}</h2>
+        <h1 className="text-4xl font-bold text-center">Nextjs + React</h1>
+        <h2 className="text-4xl font-bold text-center">
+          Count: {stateCount.count}
+        </h2>
         <Button
           aria-label="Increment +1"
           label="Increment +1"

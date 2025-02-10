@@ -4,6 +4,7 @@ const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 module.exports = {
   plugins: {
     'postcss-import': {},
+    '@tailwindcss/postcss': {},
     'postcss-preset-env': {
       stage: 3,
       autoprefixer: {},

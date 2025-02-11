@@ -21,7 +21,5 @@ export const slice: Slice = set => ({
     state.count += qty
   }),
 
-  setReset: createAction(set, 'setReset', state => {
-    state.count = 0
-  })
+  setReset: createAction(set, 'setReset', () => initialState)
 })

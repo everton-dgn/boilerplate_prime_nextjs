@@ -13,7 +13,7 @@ const storage: PersistOptions<Store, Partial<State>> = {
   storage: createJSONStorage(() => localStorage)
 }
 
-export const useCountState = middlewaresProvider<Store>({
+export const useStore = middlewaresProvider<Store>({
   slice,
   storage,
   name

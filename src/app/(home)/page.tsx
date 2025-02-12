@@ -11,7 +11,7 @@ import { Button } from 'components/atoms/Button'
 import S from './styles.module.css'
 
 const Home = () => {
-  const stateCount = useCount()
+  const { stateCount } = useCount()
 
   return (
     <div className={S.container}>

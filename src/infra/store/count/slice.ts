@@ -1,5 +1,3 @@
-import { createAction } from './createAction'
-
 import type { Slice, State } from './types'
 
 const initialState: State = {
@@ -9,17 +7,32 @@ const initialState: State = {
 export const slice: Slice = set => ({
   ...initialState,
 
-  setIncrement: createAction(set, 'setIncrement', state => {
-    state.count++
-  }),
+  setIncrement: () =>
+    set(
+      state => {
+        state.count++
+      },
+      undefined,
+      'setIncrement'
+    ),
 
-  setDecrement: createAction(set, 'setDecrement', state => {
-    state.count--
-  }),
+  setDecrement: () =>
+    set(
+      state => {
+        state.count--
+      },
+      undefined,
+      'setDecrement'
+    ),
 
-  setUpdate: createAction(set, 'setUpdate', (state, qty) => {
-    state.count += qty
-  }),
+  setUpdate: qty =>
+    set(
+      state => {
+        state.count += qty
+      },
+      undefined,
+      'setUpdate'
+    ),
 
-  setReset: createAction(set, 'setReset', () => initialState)
+  setReset: () => set(() => initialState, undefined, 'setReset')
 })

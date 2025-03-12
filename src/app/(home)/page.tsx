@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import LogoReact from 'assets/logo-react.svg'
 
-import { useCount } from 'infra/store/count'
+import { useCount } from 'viewModel/store/count'
 
 import { Button } from 'components/atoms/Button'
 

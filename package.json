@@ -23,6 +23,7 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:codegen": "playwright codegen http://localhost:3000",
     "check:update": "pnpm update --interactive --latest",
+    "update:pnpm": "corepack use pnpm@latest",
     "detect:duplicates": "pnpx jscpd ./src/**/*.ts",
     "postinstall": "pnpx lefthook install"
   },
@@ -38,6 +39,7 @@
       "sharp"
     ]
   },
+  "packageManager": "pnpm@10.6.2+sha512.47870716bea1572b53df34ad8647b42962bc790ce2bf4562ba0f643237d7302a3d6a8ecef9e4bdfc01d23af1969aa90485d4cebb0b9638fa5ef1daef656f6c1b",
   "dependencies": {
     "clsx": "2.1.1",
     "immer": "10.1.1",

@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 
-import { inter } from 'theme/fontFamily'
+import { inter } from 'presentation/theme/fontFamily'
 
-import { MainProvider } from 'components/providers/mainProvider'
+import { MainProvider } from 'presentation/components/providers/mainProvider'
 import 'theme/reset.css'
 
 const RootLayout = ({ children }: { children: ReactNode }) => (

@@ -4,9 +4,9 @@ import Image from 'next/image'
 
 import LogoReact from 'assets/logo-react.svg'
 
-import { useCount } from 'viewModel/store/count'
+import { useCount } from 'presentation/store/count'
 
-import { Button } from 'components/atoms/Button'
+import { Button } from 'presentation/components/atoms/Button'
 
 import S from './styles.module.css'
 
